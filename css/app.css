@@ -1,0 +1,79 @@
+@import url('http://fonts.cdnfonts.com/css/apercu');
+
+:root {
+    --color-white: #ffffff;
+    --color-blue: #1e7efa;
+    --color-navy-blue: #07142a;
+    --color-black: #333333;
+}
+
+html,
+body {
+    font-family: 'Apercu';
+}
+
+.container {
+    padding-top: 120px;
+    padding-bottom: 40px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.categories-container .category {
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.cards-container {
+    margin-top: 20px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 750px;
+    padding: 20px;
+    border: 2px solid var(--color-navy-blue);
+    border-radius: 10px;
+}
+
+.card .avatar-container {
+    width: 150px;
+}
+
+.card .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--color-blue);
+    color: var(--color-white);
+    font-size: 32px;
+}
+
+.card .avatar span {
+    margin: 0 2.5px;
+}
+
+.card .name {
+    font-size: 36px;
+}
+
+.card .category-container {
+    margin-top: 10px;
+}
+
+.card .category {
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 14px;
+}
