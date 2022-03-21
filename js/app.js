@@ -1,13 +1,20 @@
 var ui;
 var fillText;
 
-const onBottomPageReach = async () => {
-    if (fillText.isLoading) {
-        return;
-    }
+const onCategoryClick = async (index) => {
+    if (!fillText) return;
 
-    const newData = await fillText.fetchData();
-    ui.drawCards(newData);
+    fillText.toggleCategorySelect(index);
+    ui.drawCategories(fillText.categories);
+
+    fillText.resetData();
+    ui.resetCards();
+    ui.drawCards(await fillText.fetchData());
+}
+
+const onBottomPageReach = async () => {
+    if (fillText.isLoading) return;
+    ui.drawCards(await fillText.fetchData());
 }
 
 const addListeners = () => {
@@ -24,11 +31,11 @@ const addListeners = () => {
 const init = async () => {
     addListeners();
 
-    ui = new UI(document.getElementById('cards-container'));
+    ui = new UI(document.getElementById('categories-container'), document.getElementById('cards-container'));
     fillText = new FillText();
 
-    const newData = await fillText.fetchData();
-    ui.drawCards(newData);
+    ui.drawCategories(fillText.categories);
+    ui.drawCards(await fillText.fetchData());
 }
 
 document.addEventListener('DOMContentLoaded', init);

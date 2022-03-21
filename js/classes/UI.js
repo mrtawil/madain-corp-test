@@ -1,12 +1,26 @@
 class UI {
-    constructor(cardsContainer) {
+    constructor(categoriesContainer, cardsContainer) {
+        this.categoriesContainer = categoriesContainer;
         this.cardsContainer = cardsContainer;
     }
 
-    drawCards(data) {
+    drawCategories(categories) {
         let htmlOutput = ``;
-        for (let i = 0; i < data.length; i++) {
-            let row = data[i];
+        for (let i = 0; i < categories.length; i++) {
+            let category = categories[i];
+
+            htmlOutput += `
+                <span class="category ${category.selected ? 'selected' : ''}" onclick="onCategoryClick('${i}')">${category.name}</span>
+            `;
+        }
+
+        this.categoriesContainer.innerHTML = htmlOutput;
+    }
+
+    drawCards(raws) {
+        let htmlOutput = ``;
+        for (let i = 0; i < raws.length; i++) {
+            let row = raws[i];
 
             htmlOutput += `
                 <div class="card">
@@ -16,7 +30,7 @@ class UI {
                     <div class="info-container">
                         <div class="name">${this.getRowFullName(row)}</div>
                         <div class="category-container">
-                            <span class="category">Category 1</span>
+                            <span class="category">${row.category}</span>
                         </div>
                     </div>
                 </div>
@@ -24,6 +38,10 @@ class UI {
         }
 
         this.cardsContainer.innerHTML += htmlOutput;
+    }
+
+    resetCards() {
+        this.cardsContainer.innerHTML = '';
     }
 
     getRowFullName(row) {
