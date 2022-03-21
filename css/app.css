@@ -78,10 +78,6 @@ body {
     font-size: 32px;
 }
 
-.card .avatar span {
-    margin: 0 2.5px;
-}
-
 .card .name {
     font-size: 36px;
     color: var(--color-black);
