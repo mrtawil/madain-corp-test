@@ -1,7 +1,7 @@
 class FillText {
     constructor() {
         this.url = 'https://filltext.com/';
-        this.rows = 10;
+        this.pageSize = 10;
         this.isLoading = false;
         this.data = [];
         this.categories = [
@@ -12,7 +12,7 @@ class FillText {
     }
 
     getFullUrl() {
-        var fullUrl = `${this.url}/?rows=${this.rows}&fname={firstName}&lname={lastName}&pretty=true`;
+        var fullUrl = `${this.url}/?rows=${this.pageSize}&fname={firstName}&lname={lastName}&pretty=true`;
         if (this.getSelectedCategoriesNames().length > 0) fullUrl += `&category=${JSON.stringify(this.getSelectedCategoriesNames())}`;
         return fullUrl;
     }
@@ -29,6 +29,10 @@ class FillText {
         } catch (errors) {
             alert(errors);
         }
+    }
+
+    setPageSize(pageSize) {
+        this.pageSize = pageSize;
     }
 
     resetData() {

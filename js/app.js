@@ -17,6 +17,11 @@ const onBottomPageReach = async () => {
     ui.drawCards(await fillText.fetchData());
 }
 
+const onPageSizeSelectChange = (event) => {
+    if (!fillText) return;
+    fillText.setPageSize(event.target.value);
+}
+
 const addListeners = () => {
     document.addEventListener('scroll', function (event) {
         let documentHeight = document.body.scrollHeight;
@@ -26,6 +31,8 @@ const addListeners = () => {
             onBottomPageReach();
         }
     });
+
+    document.getElementById('page-size-select').addEventListener('change', onPageSizeSelectChange);
 }
 
 const init = async () => {

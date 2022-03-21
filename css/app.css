@@ -40,6 +40,10 @@ body {
     border-color: transparent;
 }
 
+.page-size-container {
+    margin-top: 20px;
+}
+
 .cards-container {
     margin-top: 25px;
 }
