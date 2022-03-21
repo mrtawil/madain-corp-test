@@ -23,7 +23,7 @@ class UI {
             let row = raws[i];
 
             htmlOutput += `
-                <div class="card">
+                <div class="card animate__animated animate__fadeIn" style="animation-duration:${this.getAnimationDuration(i)}s">
                     <div class="avatar-container">
                         <div class="avatar">${this.getAvatarName(row)}</div>
                     </div>
@@ -50,5 +50,25 @@ class UI {
 
     getAvatarName(row) {
         return row.fname[0] + row.lname[0];
+    }
+
+    getAnimationDuration(index) {
+        switch (true) {
+            case index <= 3:
+                return index * 0.5;
+                break;
+
+            case index <= 6:
+                return index * 0.25;
+                break;
+
+            case index <= 10:
+                return index * 0.1;
+                break;
+
+            default:
+                return index * 0.05;
+                break;
+        }
     }
 }
