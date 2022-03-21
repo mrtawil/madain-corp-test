@@ -23,7 +23,7 @@ class UI {
             `;
         }
 
-        this.cardsContainer.innerHTML = htmlOutput;
+        this.cardsContainer.innerHTML += htmlOutput;
     }
 
     getRowFullName(row) {
