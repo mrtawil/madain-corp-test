@@ -18,6 +18,8 @@ class FillText {
     }
 
     async fetchData() {
+        if (this.getSelectedCategoriesNames().length <= 0) return [];
+
         try {
             this.isLoading = true;
             const response = await axios.get(this.getFullUrl());
