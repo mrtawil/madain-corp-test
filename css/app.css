@@ -29,7 +29,7 @@ body {
 }
 
 .cards-container {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .card {
@@ -40,6 +40,10 @@ body {
     padding: 20px;
     border: 2px solid var(--color-navy-blue);
     border-radius: 10px;
+}
+
+.card:not(:first-child) {
+    margin-top: 20px;
 }
 
 .card .avatar-container {
